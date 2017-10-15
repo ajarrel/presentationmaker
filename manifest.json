@@ -27,6 +27,13 @@
 	"page_action":{
 		"default_title": "Push to Presentation",
 		"default_popup": "popup.html"
-	}
+	},
+	
+	"content_scripts":[
+		{
+			"matches": ["https://www.lds.org"],
+			"js": ["jquery-3.2.1.min.js"]
+		}
+	]
 	
 }
