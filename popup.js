@@ -22,8 +22,11 @@ function main(){
 			request.topic1 = r.topic1;
 			request.textarea1 = r.textarea1;
 			
-			$('#target').text(r);
+			$(document.createElement('h1')).text(r.topic1).appendTo('body');
+			$(document.createElement('div')).text(r.textarea1).appendTo('body');
+			
 			$(document.createElement('div'))
+				.addClass('button')
 				.text('Push to Presentation Maker?')
 				.attr('id','confirm')
 				.click(pushToCloud)
@@ -37,5 +40,5 @@ function pushToCloud(){
 	
 	$.post(uri.update + request.talk_name, request, function(resp){
 		console.log(resp);
-	}, 'json').then(function(){ $('#target').html('done'); });
+	}, 'json').then(function(){ $('.button').add('h1').add('div').fadeOut(); });
 }

@@ -31,8 +31,9 @@
 	
 	"content_scripts":[
 		{
-			"matches": ["https://www.lds.org"],
-			"js": ["jquery-3.2.1.min.js"]
+			"matches": ["https://www.lds.org/*"],
+			"js": ["jquery-3.2.1.min.js", "cs.js"],
+			"run_at": "document_end"
 		}
 	]
 	
