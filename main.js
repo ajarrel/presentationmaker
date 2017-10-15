@@ -1,16 +1,10 @@
 "use strict";
 
-var uri = {
-	update: 'https://presentation-maker.herokuapp.com/saved/', //requires talkname after trailing slash
-	create: 'https://presentation-maker.herokuapp.com/' //requires a talkname after trailing slash
-};
-
-var request = {
-	user: 'Ethan',
-	talk_name: 'Brave',
-	topic1: '',
-	textarea1: ''
-};
+chrome.runtime.onMessage.addListener(function(req, sender, resp){
+	if(req.com = 'show'){
+		chrome.pageAction.show(sender.tab.id);
+	}
+});
 
 // $(document).ready(main);  //while in debug don't call main() automatically
 
