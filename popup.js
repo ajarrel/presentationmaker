@@ -38,7 +38,31 @@ function main(){
 
 function pushToCloud(){
 	
-	$.post(uri.update + request.talk_name, request, function(resp){
-		console.log(resp);
-	}, 'json').then(function(){ $('.button').add('h1').add('div').fadeOut(); });
+	/*$.post(uri.update + request.talk_name, request, function(resp){
+		
+		$('body').children().fadeOut('slow', function(){ //ui to fadeOut then remove all content in popup.html
+			$('body').children().remove();
+		});
+		
+		console.log(resp); //log response
+		
+	}, 'json');*/
+	
+	$.ajax({
+		dataType: 'html',
+		type: 'POST',
+		url: uri.update + request.talk_name,
+		success: function(data, textStatus, jqXHR){
+			console.log('SUCCESS');
+			console.log(jqXHR);
+			$('body').children().fadeOut('slow', function(){ //ui to fadeOut then remove all content in popup.html
+				$('body').children().remove();
+				$(document.createElement('div')).text('ALL DONE').appendTo('body');
+		});
+		},
+		error: function(jqXHR, textStatus, errorThrown){
+			console.log('ERROR');
+			console.log(jqXHR);
+		}
+	});
 }
